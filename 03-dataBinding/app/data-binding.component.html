@@ -1,0 +1,63 @@
+<section class="property-binding">
+    <article>
+        <h3>Ex de Interpolacao</h3>
+        <p>String renderizada com interpolation {{url}}</p>
+        <p>Resultado de 1+1 ={{getValor()}}</p>
+        <p>Usando [src]</p>
+        <img [src]="urlImg" />
+        <!-- <p>Using bind-src</p>
+        <img bind-src="urlImg" />
+        <p>Usando \{\{urlImg\}\}</p>
+        <img src="{{urlImg}}" /> -->
+    </article>
+
+    <article>
+        <h3>Class e Style binding</h3>
+        <div>
+                Selecione uma classe:
+                <!-- exemplo de class binding -->
+                <select #classeAlerta (change)="0" >
+                    <option value="alert-success">Sucesso</option>
+                    <option value="alert-info">Info</option>
+                    <option value="alert-warning">Warning</option>
+                    <option value="alert-danger">Error</option>
+                </select>
+                <br><br>
+        </div>
+        <div class="alert {{classeAlerta.value}}" role="alert">
+            Esta é uma mensagem de ...{{classeAlerta.value}}
+        </div>
+
+        <div class="alert" role="alert"
+        [class.alert-danger]="classeAlerta.value=='alert-danger'"
+        [style.display]="classeAlerta.value=='alert-danger' ? 'block' : 'none'">
+            Esta é uma mensagem de ...danger
+        </div>
+    </article>
+</section>
+
+<section class="event-binding">
+    <article class="">
+        <h3>Event binding</h3>
+        <div class="">
+            <button (click)="onClick()" type="button" name="button">Click-me</button>
+            <input type="text"
+            (keyup)="onKeyUp($event)"
+            (key.enter)="onSave(campo.value)"
+            (blur)="onSave(campo.value)"
+             name="name" value=""
+             #campo>
+        </div>
+        <div class="">
+            Conteudo atual : {{conteudoAtual}}
+            Conteudo salvo : {{conteudoSalvo}}
+        </div>
+
+        <span (mouseover)="onMouseSpan()" (mouseout)="onMouseSpan()"
+        [class.highlight]="isMouseOver"
+        >
+            Mouse over me please!
+        </span>
+
+    </article>
+</section>
